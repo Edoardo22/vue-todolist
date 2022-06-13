@@ -17,8 +17,8 @@
     <div id="app">
         <div class="container pt-5">
             <ul v-for="(currentTodo,currentIndex) in todolist">
-                <li>{{todolist[currentIndex].text}}</li>
-                <li v-bind:class="done" class="list-group-item">
+                <li v-bind:class="done">{{todolist[currentIndex].text}}</li>
+                <li class="list-group-item">
                     <input @click="fatto" class="form-check-input me-1" type="checkbox" value="" aria-label="...">
                     {{doit}}
                 </li>
