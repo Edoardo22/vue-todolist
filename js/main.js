@@ -26,7 +26,7 @@ const appVue = new Vue({
         newTodo: "",
         currentIndex: 0,
         doit: "da fare",
-        done: "",
+        titolo: "TodoList",
     },
 
     methods: {
@@ -40,12 +40,18 @@ const appVue = new Vue({
             }
         },
 
-        fatto: function () {
+        fatto: function (selectedIndex) {
+            this.currentIndex = selectedIndex;
             this.todolist[this.currentIndex].done = true;
-            this.doit = "Fatto";
-            this.done = "text-decoration-line-through";
-        }
+            console.log(this.todolist[this.currentIndex]);
+            console.log(this.todolist[this.currentIndex].done);
+            console.log(this.currentIndex);
+        },
 
+        deleteTodo: function (selectedIndex) {
+            this.todolist.splice(selectedIndex, 1);
+
+        }
     },
 
 });

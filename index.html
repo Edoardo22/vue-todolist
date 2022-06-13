@@ -16,11 +16,19 @@
 <body>
     <div id="app">
         <div class="container pt-5">
-            <ul v-for="(currentTodo,currentIndex) in todolist">
-                <li v-bind:class="done">{{todolist[currentIndex].text}}</li>
+            <h1>{{titolo}}</h1>
+            <ul v-for="(todo,indice) in todolist">
+                <li v-bind:class="{'text-decoration-line-through': todo.done}">{{todo.text}}</li>
                 <li class="list-group-item">
-                    <input @click="fatto" class="form-check-input me-1" type="checkbox" value="" aria-label="...">
-                    {{doit}}
+                    <input @click="fatto(indice)" class="form-check-input me-1" type="checkbox" value=""
+                        aria-label="...">
+                    <button @click="deleteTodo">X</button>
+                    <span v-if="todo.done">
+                        fatto
+
+                    </span>
+                    <span v-else>
+                        non fatto
                 </li>
             </ul>
 
